@@ -1,0 +1,174 @@
+package robotSystems;
+
+import com.qualcomm.hardware.limelightvision.Limelight3A;
+import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
+import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
+import com.qualcomm.robotcore.hardware.ColorSensor;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.IMU;
+import com.qualcomm.robotcore.hardware.Servo;
+
+/**
+ * This class is where we identify the physical components of the robot
+ * Think of this as your "wiring diagram in code".
+ * It knows:
+ *      What components exist (motors, servos, sensors)
+ *      What their names are in the configuration
+ *      How to initialize them safely
+ *
+ * But it doesn’t know what to do with them.
+ *
+ */
+
+public class RobotHardware {
+    private IMU imu = null;
+    HardwareMap hwMap = null; //TODO Can we get rid of this variable, is it used outside the the constructor?
+    private Limelight3A camera = null;
+    private DcMotor leftFront = null;
+    private DcMotor rightFront = null;
+    private DcMotor leftBack = null;
+    private DcMotor rightBack = null;
+    private RevBlinkinLedDriver blinkin = null;
+    private DcMotorEx shooterLeft = null;
+    private DcMotorEx shooterRight = null;
+   private Servo pinwheelServo;
+
+   private Servo leverArm;
+
+   private ColorSensor pinwheelSensor;
+
+   private Servo hoodservo;
+
+
+
+    private DcMotor intake = null;
+
+    public static final double M_TO_IN = 39.3701;
+    public static final double DESIRED_DISTANCE_IN = 50.0;
+    public static final int DESIRED_TAG_ID = 20;
+
+
+    public void init(HardwareMap ahwMap) {
+        hwMap = ahwMap;
+        imu = hwMap.get(IMU.class, "imu");
+        IMU.Parameters parameters = new IMU.Parameters(new RevHubOrientationOnRobot(
+                RevHubOrientationOnRobot.LogoFacingDirection.LEFT, RevHubOrientationOnRobot.UsbFacingDirection.UP));
+        imu.initialize(parameters);
+        leftBack = hwMap.get(DcMotor.class, "leftBack");
+        leftFront = hwMap.get(DcMotor.class, "leftFront");
+        rightFront = hwMap.get(DcMotor.class, "rightFront");
+        rightBack = hwMap.get(DcMotor.class, "rightBack");
+
+        camera = hwMap.get(Limelight3A.class, "limelight");
+        blinkin = hwMap.get(RevBlinkinLedDriver.class, "blinkin");
+
+        pinwheelServo = hwMap.get(Servo.class, "pinwheelservo" );
+        pinwheelServo.setPosition(0.2 + .225/3 * 6);
+
+        leverArm= hwMap.get(Servo.class, "leverarm");
+        leverArm.setPosition(.95);
+        pinwheelSensor = hwMap.get(ColorSensor.class, "colorsensor");
+
+        shooterLeft = hwMap.get(DcMotorEx.class, "shooterLeft");
+        shooterRight = hwMap.get(DcMotorEx.class, "shooterRight");
+        hoodservo = hwMap.get(Servo.class, "HoodServo");
+        hoodservo.setPosition(0.5);
+
+        intake = hwMap.get(DcMotor.class, "intakeMotor");
+
+        leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+
+        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightFront.setDirection(DcMotorSimple.Direction.FORWARD);
+        rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
+        imu.resetYaw();
+
+        shooterLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+        shooterRight.setDirection(DcMotorSimple.Direction.REVERSE);
+
+        shooterLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        shooterRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+
+        intake.setDirection(DcMotorSimple.Direction.FORWARD);
+
+    }
+
+    public void startCamera() {
+        if (camera != null) {
+            camera.pipelineSwitch(0);
+            camera.start();
+        }
+    }
+
+    public void stopCamera() {
+        if (camera != null) {
+            camera.stop();
+        }
+    }
+
+    //Getters for DriveSubsystem motors
+    public DcMotor getLeftFront() {
+        return leftFront;
+    }
+
+    public DcMotor getRightFront() {
+        return rightFront;
+    }
+
+    public DcMotor getLeftBack() {
+        return leftBack;
+    }
+
+    public DcMotor getRightBack() {
+        return rightBack;
+    }
+
+    //Getters for VisionSubsystem
+    public Limelight3A getCamera() {
+        return camera;
+    }
+
+    public RevBlinkinLedDriver getBlinkin() {
+        return blinkin;
+    }
+
+    public IMU getImu() {
+        return imu;
+    }
+
+    public DcMotorEx getShooterLeft() {
+        return shooterLeft;
+    }
+
+    public DcMotorEx getShooterRight() {
+        return shooterRight;
+    }
+
+    public DcMotor getIntake() {
+        return intake;
+    }
+
+    public Servo getPinwheelServo() {
+        return pinwheelServo;
+    }
+
+    public Servo getLeverArm() {
+        return leverArm;
+    }
+
+    public ColorSensor getColorSensor() {
+        return pinwheelSensor;
+    }
+
+    public Servo getHoodservo() {
+        return hoodservo;
+    }
+}
