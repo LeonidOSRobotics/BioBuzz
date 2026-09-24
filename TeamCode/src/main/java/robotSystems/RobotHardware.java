@@ -34,15 +34,6 @@ public class RobotHardware {
     private RevBlinkinLedDriver blinkin = null;
     private DcMotorEx shooterLeft = null;
     private DcMotorEx shooterRight = null;
-   private Servo pinwheelServo;
-
-   private Servo leverArm;
-
-   private ColorSensor pinwheelSensor;
-
-   private Servo hoodservo;
-
-
 
     private DcMotor intake = null;
 
@@ -65,17 +56,9 @@ public class RobotHardware {
         camera = hwMap.get(Limelight3A.class, "limelight");
         blinkin = hwMap.get(RevBlinkinLedDriver.class, "blinkin");
 
-        pinwheelServo = hwMap.get(Servo.class, "pinwheelservo" );
-        pinwheelServo.setPosition(0.2 + .225/3 * 6);
-
-        leverArm= hwMap.get(Servo.class, "leverarm");
-        leverArm.setPosition(.95);
-        pinwheelSensor = hwMap.get(ColorSensor.class, "colorsensor");
-
         shooterLeft = hwMap.get(DcMotorEx.class, "shooterLeft");
         shooterRight = hwMap.get(DcMotorEx.class, "shooterRight");
-        hoodservo = hwMap.get(Servo.class, "HoodServo");
-        hoodservo.setPosition(0.5);
+
 
         intake = hwMap.get(DcMotor.class, "intakeMotor");
 
@@ -156,19 +139,4 @@ public class RobotHardware {
         return intake;
     }
 
-    public Servo getPinwheelServo() {
-        return pinwheelServo;
-    }
-
-    public Servo getLeverArm() {
-        return leverArm;
-    }
-
-    public ColorSensor getColorSensor() {
-        return pinwheelSensor;
-    }
-
-    public Servo getHoodservo() {
-        return hoodservo;
-    }
 }
