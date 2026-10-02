@@ -11,9 +11,10 @@ public class ShooterSubsystem {
 
     public void setVelocity(double velocity){
       // Converting the velocity to RPM
-        velocity = (velocity / 60) * 28;
-        hardware.getShooterLeft().setVelocity(velocity);
-        hardware.getShooterRight().setVelocity(velocity);
+        //velocity = (velocity / 60) * 28;
+       // hardware.getShooterLeft().setVelocity(velocity);
+     //   hardware.getShooterRight().setVelocity(velocity);
+        hardware.getNectarShooter().setPower(-1*velocity);
     }
 
     public boolean isUpToSpeed(double target){

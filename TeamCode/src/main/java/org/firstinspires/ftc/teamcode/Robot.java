@@ -33,12 +33,12 @@ public class Robot {
         hardware.init(hwMap);
 
         //Initializes the individual subsystems for the robot
-        vision = new VisionSubsystem(hardware);
-        imu = new ImuSubsystem(hardware);
+        //vision = new VisionSubsystem(hardware);
+        //imu = new ImuSubsystem(hardware);
         driveTrain = new DriveSubsystem(hardware, vision, imu);
-        LED = new LEDSubsystem(hardware);
+        //LED = new LEDSubsystem(hardware);
         shooter = new ShooterSubsystem(hardware);
-        intake = new IntakeSubsystem(hardware);
+        //intake = new IntakeSubsystem(hardware);
 
     }
 }

@@ -18,12 +18,16 @@ public class DriveTeleOp extends LinearOpMode {
             robot.driveTrain.fieldOrientedDrive(-gamepad1.left_stick_y, gamepad1.left_stick_x, -rotate);
 
             //Resetting the robot's orientation
-            if(gamepad1.start){
-                robot.imu.resetYaw();
+           // if(gamepad1.start){
+              //  robot.imu.resetYaw();
+           // }
+
+
+            if(gamepad1.a){
+                robot.shooter.setVelocity(.0005);
+            }else if(gamepad1.b){
+                robot.shooter.setVelocity(0);
             }
-
-
-
 
 
 
