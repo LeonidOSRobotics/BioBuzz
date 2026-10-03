@@ -32,13 +32,16 @@ public class Robot {
         hardware = new RobotHardware();
         hardware.init(hwMap);
 
-        //Initializes the individual subsystems for the robot
-        //vision = new VisionSubsystem(hardware);
-        //imu = new ImuSubsystem(hardware);
+
         driveTrain = new DriveSubsystem(hardware, vision, imu);
-        //LED = new LEDSubsystem(hardware);
         shooter = new ShooterSubsystem(hardware);
+        vision = new VisionSubsystem(hardware); //Reset Config file with limeight
+
         //intake = new IntakeSubsystem(hardware);
+        //Initializes the individual subsystems for the robot
+
+        //imu = new ImuSubsystem(hardware);
+        //LED = new LEDSubsystem(hardware);
 
     }
 }

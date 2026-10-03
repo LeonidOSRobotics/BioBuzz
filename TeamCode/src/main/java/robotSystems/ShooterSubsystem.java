@@ -10,32 +10,24 @@ public class ShooterSubsystem {
     }
 
     public void setVelocity(double velocity){
-      // Converting the velocity to RPM
-        //velocity = (velocity / 60) * 28;
-       // hardware.getShooterLeft().setVelocity(velocity);
-     //   hardware.getShooterRight().setVelocity(velocity);
-        hardware.getNectarShooter().setPower(-1*velocity);
+        // Converting the RPM velocity to ticks per second
+        velocity = (velocity * 28) / 60;
+        hardware.getNectarShooter().setVelocity(-1 * velocity);
     }
 
-    public boolean isUpToSpeed(double target){
+    public boolean isUpToSpeed(double target) {
         double threshold = 50; //Allows for the motor to be up to 50 rpm lower than needed
-        target = ((target-threshold)/60) * 28;
-        boolean leftMotor = hardware.getShooterLeft().getVelocity() > target;
-        boolean rightMotor = hardware.getShooterRight().getVelocity() > target;
-        return leftMotor && rightMotor;
+        target = ((target - threshold) * 28) / 60;
+        boolean NectarMotor = hardware.getNectarShooter().getVelocity() > target;
+        return NectarMotor;
     }
-
-
-
 
     public void powerShooter(double val){
-        hardware.getShooterLeft().setPower(val);
-        hardware.getShooterRight().setPower(val);
+        hardware.getNectarShooter().setPower(-val);
     }
 
     public void powerOff(){
-        hardware.getShooterLeft().setPower(0);
-        hardware.getShooterRight().setPower(0);
+        hardware.getNectarShooter().setPower(0);
 
     }
 
