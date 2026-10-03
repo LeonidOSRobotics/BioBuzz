@@ -32,8 +32,6 @@ public class RobotHardware {
     private DcMotor leftBack = null;
     private DcMotor rightBack = null;
     private RevBlinkinLedDriver blinkin = null;
-    private DcMotorEx shooterLeft = null;
-    private DcMotorEx shooterRight = null;
     private DcMotorEx nectarShooter = null;
 
     private DcMotor intake = null;
@@ -57,14 +55,10 @@ public class RobotHardware {
         nectarShooter.setDirection(DcMotorSimple.Direction.FORWARD); // flip to REVERSE if it spins the wrong way
         nectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-       // camera = hwMap.get(Limelight3A.class, "limelight");
-        //blinkin = hwMap.get(RevBlinkinLedDriver.class, "blinkin");
+        camera = hwMap.get(Limelight3A.class, "limelight");
 
-       // shooterLeft = hwMap.get(DcMotorEx.class, "shooterLeft");
-       // shooterRight = hwMap.get(DcMotorEx.class, "shooterRight");
-
-
-       // intake = hwMap.get(DcMotor.class, "intakeMotor");
+        // blinkin = hwMap.get(RevBlinkinLedDriver.class, "blinkin");
+        // intake = hwMap.get(DcMotor.class, "intakeMotor");
 
         leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
@@ -77,11 +71,8 @@ public class RobotHardware {
         rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
         imu.resetYaw();
 
-        //shooterLeft.setDirection(DcMotorSimple.Direction.FORWARD);
-        //shooterRight.setDirection(DcMotorSimple.Direction.REVERSE);
-
-       // shooterLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-       // shooterRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        nectarShooter.setDirection(DcMotorSimple.Direction.FORWARD); // flip to REVERSE if it spins the wrong way
+        nectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 
         //intake.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -124,29 +115,20 @@ public class RobotHardware {
         return camera;
     }
 
-    public RevBlinkinLedDriver getBlinkin() {
+   /* public RevBlinkinLedDriver getBlinkin() {
         return blinkin;
-    }
+    }*/
 
     public IMU getImu() {
         return imu;
     }
 
-    public DcMotorEx getShooterLeft() {
-        return shooterLeft;
-    }
-
-    public DcMotorEx getShooterRight() {
-        return shooterRight;
-    }
-
     public DcMotorEx getNectarShooter() { return nectarShooter;}
 
 
-
-    public DcMotor getIntake() {
+  /*  public DcMotor getIntake() {
         return intake;
-    }
+    }*/
 
 
 

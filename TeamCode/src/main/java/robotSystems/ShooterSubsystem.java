@@ -12,7 +12,7 @@ public class ShooterSubsystem {
     public void setVelocity(double velocity){
         // Converting the RPM velocity to ticks per second
         velocity = (velocity * 28) / 60;
-        hardware.getNectarShooter().setVelocity(-1 * velocity);
+        hardware.getNectarShooter().setVelocity(velocity); // Go to RobotHardware REVERSE if it spins the wrong way
     }
 
     public boolean isUpToSpeed(double target) {
@@ -23,7 +23,7 @@ public class ShooterSubsystem {
     }
 
     public void powerShooter(double val){
-        hardware.getNectarShooter().setPower(-val);
+        hardware.getNectarShooter().setPower(val); // Go to RobotHardware REVERSE if it spins the wrong way
     }
 
     public void powerOff(){
