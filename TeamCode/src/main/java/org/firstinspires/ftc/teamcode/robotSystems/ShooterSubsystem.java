@@ -1,4 +1,4 @@
-package robotSystems;
+package org.firstinspires.ftc.teamcode.robotSystems;
 
 
 
@@ -11,9 +11,10 @@ public class ShooterSubsystem {
 
     public void setVelocity(double velocity){
         // Converting the RPM velocity to ticks per second
-        velocity = (velocity * 28) / 60;
+        velocity = (velocity * 28.0) / 60;
         hardware.getNectarShooter().setVelocity(velocity); // Go to RobotHardware REVERSE if it spins the wrong way
     }
+
 
     public boolean isUpToSpeed(double target) {
         double threshold = 50; //Allows for the motor to be up to 50 rpm lower than needed

@@ -1,4 +1,4 @@
-package robotSystems;
+package org.firstinspires.ftc.teamcode.robotSystems;
 
 import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
@@ -55,9 +55,9 @@ public class RobotHardware {
         nectarShooter.setDirection(DcMotorSimple.Direction.FORWARD); // flip to REVERSE if it spins the wrong way
         nectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        camera = hwMap.get(Limelight3A.class, "limelight");
+       // camera = hwMap.get(Limelight3A.class, "limelight");
 
-        // blinkin = hwMap.get(RevBlinkinLedDriver.class, "blinkin");
+        //blinkin = hwMap.get(RevBlinkinLedDriver.class, "blinkin");
         // intake = hwMap.get(DcMotor.class, "intakeMotor");
 
         leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
@@ -71,7 +71,7 @@ public class RobotHardware {
         rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
         imu.resetYaw();
 
-        nectarShooter.setDirection(DcMotorSimple.Direction.FORWARD); // flip to REVERSE if it spins the wrong way
+        nectarShooter.setDirection(DcMotorSimple.Direction.REVERSE); // flip to REVERSE if it spins the wrong way
         nectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 
@@ -124,6 +124,10 @@ public class RobotHardware {
     }
 
     public DcMotorEx getNectarShooter() { return nectarShooter;}
+
+    public RevBlinkinLedDriver getBlinkin() {
+        return blinkin;
+    }
 
 
   /*  public DcMotor getIntake() {

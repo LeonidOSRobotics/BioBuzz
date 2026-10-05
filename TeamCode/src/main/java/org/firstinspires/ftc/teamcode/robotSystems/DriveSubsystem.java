@@ -1,4 +1,4 @@
-package robotSystems;
+package org.firstinspires.ftc.teamcode.robotSystems;
 
 /*
  * This class subsystem is where the robot is told how to perform drive
@@ -105,13 +105,13 @@ public class DriveSubsystem {
     /**
      * When a tag is visible causes the robot to line up with the
      * tag in regards to the robots heading and strafe
-     */
+     *//*
     public void autoAlignment(){
         double[] alignmentError = vision.getAlignmentError();
         double turn = Range.clip(alignmentError[2] * -TURN_GAIN,   -MAX_AUTO_TURN,   MAX_AUTO_TURN);
         double strafe = Range.clip(alignmentError[1] * STRAFE_GAIN, -MAX_AUTO_STRAFE, MAX_AUTO_STRAFE);
         drive(0, strafe, turn);
-    }
+    }*/
 
 
 }

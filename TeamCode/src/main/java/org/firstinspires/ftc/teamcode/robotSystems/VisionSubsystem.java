@@ -1,4 +1,4 @@
-package robotSystems;
+package org.firstinspires.ftc.teamcode.robotSystems;
 
 import com.qualcomm.hardware.limelightvision.LLResult;
 import com.qualcomm.hardware.limelightvision.LLResultTypes;
@@ -13,7 +13,7 @@ import com.qualcomm.hardware.limelightvision.LLResultTypes;
  */
 
 public class VisionSubsystem {
-
+/*
     RobotHardware hardware;
     LLResult result;
     private static final double M_TO_IN = 39.3701;
@@ -45,7 +45,7 @@ public class VisionSubsystem {
      * of the robot relative to the Apriltag in view.
      * @Precondition: An AprilTag is visible
      * @return The alignment of the robot {distance, strafe, heading}
-     */
+     *
     public double[] getAlignmentError(){
 
         getLatestTag();
@@ -60,7 +60,7 @@ public class VisionSubsystem {
         return alignmentError;
 
     }
-
+*/
 
 
 }

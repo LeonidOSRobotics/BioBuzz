@@ -25,10 +25,10 @@
             name="Control Hub"
             port="173">
             <goBILDA5202SeriesMotor
-                name="leftFront"
+                name="leftBack"
                 port="0" />
             <goBILDA5202SeriesMotor
-                name="leftBack"
+                name="leftFront"
                 port="1" />
             <LynxEmbeddedIMU
                 name="imu"
