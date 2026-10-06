@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 @TeleOp(name = "Velocity Test", group = "TeleOp")
 public class ShooterVelocity extends LinearOpMode {
     Robot robot = new Robot();
-    int vel = 3000;
+    int vel = 3150;
     boolean alreadyPressed = false;
 
     @Override
@@ -16,10 +16,10 @@ public class ShooterVelocity extends LinearOpMode {
         while (opModeIsActive()) {
 
             if(gamepad1.dpad_up && !alreadyPressed){
-                vel += 100;
+                vel += 50;
                 alreadyPressed = true;
             }else if(gamepad1.dpad_down && !alreadyPressed){
-                vel-=100;
+                vel-=50;
                 alreadyPressed = true;
             }else if (!gamepad1.dpad_up && !gamepad1.dpad_down){
                 alreadyPressed = false;
