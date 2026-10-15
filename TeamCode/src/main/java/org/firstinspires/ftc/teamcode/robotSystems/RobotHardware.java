@@ -58,7 +58,7 @@ public class RobotHardware {
        // camera = hwMap.get(Limelight3A.class, "limelight");
 
         //blinkin = hwMap.get(RevBlinkinLedDriver.class, "blinkin");
-        // intake = hwMap.get(DcMotor.class, "intakeMotor");
+         intake = hwMap.get(DcMotor.class, "intakeMotor");
 
         leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
@@ -75,7 +75,7 @@ public class RobotHardware {
         nectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 
-        //intake.setDirection(DcMotorSimple.Direction.FORWARD);
+        intake.setDirection(DcMotorSimple.Direction.FORWARD);
 
     }
 
@@ -130,13 +130,8 @@ public class RobotHardware {
     }
 
 
-  /*  public DcMotor getIntake() {
-        return intake;
-    }*/
-
-
-
-    }
+    public DcMotor getIntake() {return intake;}
+}
 
 
 
