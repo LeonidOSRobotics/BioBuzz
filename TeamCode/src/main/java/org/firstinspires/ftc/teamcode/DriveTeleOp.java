@@ -29,7 +29,11 @@ public class DriveTeleOp extends LinearOpMode {
             }else if(gamepad1.b){
                 robot.shooter.setVelocity(0);
             }
-
+            if(gamepad2.a){
+                robot.intake.powerOn();
+            }else if (gamepad2.b){
+                robot.intake.powerOff();
+            }
 
 
 
