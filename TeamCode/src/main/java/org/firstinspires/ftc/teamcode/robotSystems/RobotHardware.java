@@ -71,7 +71,7 @@ public class RobotHardware {
         rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
         imu.resetYaw();
 
-        nectarShooter.setDirection(DcMotorSimple.Direction.REVERSE); // flip to REVERSE if it spins the wrong way
+        nectarShooter.setDirection(DcMotorSimple.Direction.FORWARD); // flip to REVERSE if it spins the wrong way
         nectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 

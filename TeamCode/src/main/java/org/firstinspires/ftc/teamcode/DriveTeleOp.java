@@ -25,7 +25,7 @@ public class DriveTeleOp extends LinearOpMode {
 
 
             if(gamepad1.a){
-                robot.shooter.setVelocity(3200);
+                robot.shooter.setVelocity(2850);
             }else if(gamepad1.b){
                 robot.shooter.setVelocity(0);
             }
