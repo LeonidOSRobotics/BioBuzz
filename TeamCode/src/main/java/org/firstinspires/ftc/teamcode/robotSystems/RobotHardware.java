@@ -35,6 +35,7 @@ public class RobotHardware {
     private DcMotorEx nectarShooter = null;
 
     private DcMotor intake = null;
+    private Servo pollengate = null;
 
     public static final double M_TO_IN = 39.3701;
     public static final double DESIRED_DISTANCE_IN = 50.0;
@@ -54,6 +55,9 @@ public class RobotHardware {
         nectarShooter = hwMap.get(DcMotorEx.class, "nectarShooter");
         nectarShooter.setDirection(DcMotorSimple.Direction.FORWARD); // flip to REVERSE if it spins the wrong way
         nectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        pollengate= hwMap.get(Servo.class, "leverarm");
+        pollengate.setPosition(.95);
+
 
        // camera = hwMap.get(Limelight3A.class, "limelight");
 
@@ -131,6 +135,10 @@ public class RobotHardware {
 
 
     public DcMotor getIntake() {return intake;}
+
+    public Servo getPollenGate() {
+        return pollengate;
+    }
 }
 
 

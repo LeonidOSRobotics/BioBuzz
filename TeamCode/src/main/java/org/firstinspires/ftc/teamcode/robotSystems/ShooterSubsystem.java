@@ -16,6 +16,7 @@ public class ShooterSubsystem {
         hardware.getNectarShooter().setVelocity(velocity);// Go to RobotHardware REVERSE if it spins the wrong way
 
     }
+
     public boolean isUpToSpeed(double target) {
         double threshold = 25; //Allows for the motor to be up to 50 rpm lower than needed
         target = ((target - threshold) * 28) / 60;
@@ -23,17 +24,28 @@ public class ShooterSubsystem {
         return NectarMotor;
     }
 
-    public void powerShooter(double val){
+    public void powerShooter(double val) {
         hardware.getNectarShooter().setPower(val); // Go to RobotHardware REVERSE if it spins the wrong way
 
     }
 
-    public void powerOff(){
+    public void powerOff() {
         hardware.getNectarShooter().setPower(0);
 
     }
-
+public void pollenGateOpen(){
+        hardware.getPollenGate().setPosition(.95);
+}
+    public void pollenGateClose(){
+        hardware.getPollenGate().setPosition(.15);
     }
+    }
+
+
+
+
+
+
 
 
 

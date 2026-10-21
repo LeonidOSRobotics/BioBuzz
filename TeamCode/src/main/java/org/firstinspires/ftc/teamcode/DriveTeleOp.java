@@ -35,8 +35,14 @@ public class DriveTeleOp extends LinearOpMode {
                 robot.intake.powerOff();
             }
 
+            if(gamepad2.dpad_up) {
+                robot.shooter.pollenGateOpen();
+            }else if (gamepad2.dpad_down);
+            robot.shooter.pollenGateClose();
+            }
+
 
 
         }
     }
-}
+
