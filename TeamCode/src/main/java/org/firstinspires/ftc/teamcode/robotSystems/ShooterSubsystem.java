@@ -33,27 +33,35 @@ public class ShooterSubsystem {
         hardware.getNectarShooter().setPower(0);
 
     }
-public void pollenGateOpen(){
+
+    public void pollenGateOpen() {
         hardware.getPollenGate().setPosition(1);
-}
-    public void pollenGateClose(){
+    }
+
+    public void pollenGateClose() {
         hardware.getPollenGate().setPosition(.75);
     }
 
 
-    public void flowerUp(){
+    public void flowerUp() {
         hardware.getFlowerLeft().setPosition(1);
         hardware.getFlowerRight().setPosition(1);
     }
 
-    public void flowerDown(){
+    public void flowerDown() {
         hardware.getFlowerLeft().setPosition(0);
         hardware.getFlowerRight().setPosition(0);
     }
 
+    public void setLeft(double pos) {
+        hardware.getFlowerLeft().setPosition(pos);
     }
 
 
+public void setRight(double pos) {
+    hardware.getFlowerRight().setPosition(pos);
+}
+}
 
 
 

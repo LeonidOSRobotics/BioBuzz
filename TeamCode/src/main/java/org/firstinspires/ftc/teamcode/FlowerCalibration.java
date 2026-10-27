@@ -6,8 +6,12 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 @TeleOp(name = "Velocity Test", group = "TeleOp")
 public class FlowerCalibration extends LinearOpMode {
     Robot robot = new Robot();
-    int vel = 3150;
-    boolean alreadyPressed = false;
+    double leftPos = 0;
+    double rightPos = 0;
+    boolean alreadyPressedLeft = false;
+    boolean alreadyPressedRight = false;
+
+
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -15,19 +19,30 @@ public class FlowerCalibration extends LinearOpMode {
         waitForStart();
         while (opModeIsActive()) {
 
-            if(gamepad2.left_bumper && !alreadyPressed){
-                vel += 50;
-                alreadyPressed = true;
-            }else if(gamepad2.right_bumper && !alreadyPressed){
-                vel-=50;
-                alreadyPressed = true;
+            if(gamepad2.left_bumper && !alreadyPressedLeft){
+                leftPos += .1;
+                alreadyPressedLeft = true;
+            }else if(gamepad2.right_bumper && !alreadyPressedLeft){
+                rightPos-= .1;
+                alreadyPressedLeft = true;
             }else if (!gamepad2.left_bumper && !gamepad1.right_bumper){
-                alreadyPressed = false;
+                alreadyPressedLeft = false;
+            }
+            if(gamepad2.left_bumper && !alreadyPressedRight){
+                leftPos += .1;
+                alreadyPressedRight = true;
+            }else if(gamepad2.right_bumper && !alreadyPressedRight){
+                rightPos-= .1;
+                alreadyPressedRight = true;
+            }else if (!gamepad2.left_bumper && !gamepad1.right_bumper){
+                alreadyPressedRight = false;
             }
 
-            robot.shooter.setVelocity(vel);
-            telemetry.addData("RPM: ", vel);
-            telemetry.addData("Button Pressed: ", alreadyPressed);
+            robot.shooter.setLeft(leftPos);
+            robot.shooter.setRight(rightPos);
+            telemetry.addData("Left Pos:",leftPos);
+            telemetry.addData("Right Pos:",rightPos);
+            telemetry.addData("Button Pressed: ", alreadyPressedLeft + "Right" + alreadyPressedRight);
             telemetry.update();
 
         }
