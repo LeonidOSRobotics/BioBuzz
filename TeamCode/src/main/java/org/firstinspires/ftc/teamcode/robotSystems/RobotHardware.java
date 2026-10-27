@@ -36,6 +36,8 @@ public class RobotHardware {
 
     private DcMotor intake = null;
     private Servo pollengate = null;
+    private Servo flowerleft = null;
+    private Servo flowerright = null;
 
     public static final double M_TO_IN = 39.3701;
     public static final double DESIRED_DISTANCE_IN = 50.0;
@@ -57,6 +59,10 @@ public class RobotHardware {
         nectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         pollengate= hwMap.get(Servo.class, "leverarm");
         pollengate.setPosition(.95);
+        flowerleft.setPosition(.5);
+        flowerright.setPosition(.5);
+
+
 
 
        // camera = hwMap.get(Limelight3A.class, "limelight");
@@ -138,6 +144,14 @@ public class RobotHardware {
 
     public Servo getPollenGate() {
         return pollengate;
+    }
+
+    public Servo getFlowerLeft(){
+        return flowerleft;
+    }
+
+    public Servo getFlowerRight(){
+        return flowerright;
     }
 }
 

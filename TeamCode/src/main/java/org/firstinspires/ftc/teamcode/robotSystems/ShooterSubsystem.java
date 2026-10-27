@@ -34,12 +34,25 @@ public class ShooterSubsystem {
 
     }
 public void pollenGateOpen(){
-        hardware.getPollenGate().setPosition(.95);
+        hardware.getPollenGate().setPosition(1);
 }
     public void pollenGateClose(){
-        hardware.getPollenGate().setPosition(.15);
+        hardware.getPollenGate().setPosition(.75);
     }
+
+
+    public void flowerUp(){
+        hardware.getFlowerLeft().setPosition(1);
+        hardware.getFlowerRight().setPosition(1);
     }
+
+    public void flowerDown(){
+        hardware.getFlowerLeft().setPosition(0);
+        hardware.getFlowerRight().setPosition(0);
+    }
+
+    }
+
 
 
 
