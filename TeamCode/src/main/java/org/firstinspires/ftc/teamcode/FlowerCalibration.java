@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name = "Velocity Test", group = "TeleOp")
+@TeleOp(name = "Flower Calibration", group = "TeleOp")
 public class FlowerCalibration extends LinearOpMode {
     Robot robot = new Robot();
     double leftPos = 0;

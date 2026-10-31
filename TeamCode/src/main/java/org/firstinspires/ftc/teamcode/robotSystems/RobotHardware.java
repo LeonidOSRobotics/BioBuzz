@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.robotSystems;
 import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
@@ -36,8 +37,10 @@ public class RobotHardware {
 
     private DcMotor intake = null;
     private Servo pollengate = null;
-    private Servo flowerleft = null;
+  private Servo flowerleft = null;
     private Servo flowerright = null;
+    private CRServo ramp = null;
+
 
     public static final double M_TO_IN = 39.3701;
     public static final double DESIRED_DISTANCE_IN = 50.0;
@@ -59,6 +62,8 @@ public class RobotHardware {
         nectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         pollengate= hwMap.get(Servo.class, "leverarm");
         pollengate.setPosition(.95);
+        flowerleft = hwMap.get(Servo.class,"flowerLeft");
+        flowerright= hwMap.get(Servo.class,"flowerRight");
         flowerleft.setPosition(.5);
         flowerright.setPosition(.5);
 
@@ -69,6 +74,7 @@ public class RobotHardware {
 
         //blinkin = hwMap.get(RevBlinkinLedDriver.class, "blinkin");
          intake = hwMap.get(DcMotor.class, "intakeMotor");
+        ramp = hwMap.get(CRServo.class, "rampMotor");
 
         leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
@@ -86,6 +92,7 @@ public class RobotHardware {
 
 
         intake.setDirection(DcMotorSimple.Direction.FORWARD);
+
 
     }
 
@@ -142,7 +149,8 @@ public class RobotHardware {
 
     public DcMotor getIntake() {return intake;}
 
-    public Servo getPollenGate() {
+
+   public Servo getPollenGate() {
         return pollengate;
     }
 
@@ -153,6 +161,7 @@ public class RobotHardware {
     public Servo getFlowerRight(){
         return flowerright;
     }
+    public CRServo getRamp() {return ramp;}
 }
 
 

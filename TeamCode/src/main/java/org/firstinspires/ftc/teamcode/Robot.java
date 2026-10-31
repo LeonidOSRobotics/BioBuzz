@@ -27,6 +27,7 @@ public class Robot {
 
 
 
+
     public void initRobot(HardwareMap hwMap){
         //Creates and initializes the shared hardware for the robot
         hardware = new RobotHardware();
@@ -36,10 +37,11 @@ public class Robot {
         imu = new ImuSubsystem(hardware);
         //vision = new VisionSubsystem(hardware); //Reset Config file with limeight
         driveTrain = new DriveSubsystem(hardware, vision, imu);
-        shooter = new ShooterSubsystem(hardware);
+        shooter
+                = new ShooterSubsystem(hardware);
 
 
-        //intake = new IntakeSubsystem(hardware);
+        intake = new IntakeSubsystem(hardware);
         //LED = new LEDSubsystem(hardware);
 
     }
