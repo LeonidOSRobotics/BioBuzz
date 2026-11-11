@@ -20,21 +20,21 @@ public class FlowerCalibration extends LinearOpMode {
         while (opModeIsActive()) {
 
             if(gamepad2.left_bumper && !alreadyPressedLeft){
-                leftPos += .1;
+                leftPos += .05;
                 alreadyPressedLeft = true;
             }else if(gamepad2.right_bumper && !alreadyPressedLeft){
-                rightPos-= .1;
+                leftPos-= .05;
                 alreadyPressedLeft = true;
-            }else if (!gamepad2.left_bumper && !gamepad1.right_bumper){
+            }else if (!gamepad2.left_bumper && !gamepad2.right_bumper){
                 alreadyPressedLeft = false;
             }
-            if(gamepad2.left_bumper && !alreadyPressedRight){
-                leftPos += .1;
+            if(gamepad1.left_bumper && !alreadyPressedRight){
+                 rightPos+= .05;
                 alreadyPressedRight = true;
-            }else if(gamepad2.right_bumper && !alreadyPressedRight){
-                rightPos-= .1;
+            }else if(gamepad1.right_bumper && !alreadyPressedRight){
+                rightPos-= .05;
                 alreadyPressedRight = true;
-            }else if (!gamepad2.left_bumper && !gamepad1.right_bumper){
+            }else if (!gamepad1.left_bumper && !gamepad1.right_bumper){
                 alreadyPressedRight = false;
             }
 

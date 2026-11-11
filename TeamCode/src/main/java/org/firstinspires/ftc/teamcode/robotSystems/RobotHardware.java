@@ -4,7 +4,6 @@ import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.CRServo;
-import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -33,7 +32,7 @@ public class RobotHardware {
     private DcMotor leftBack = null;
     private DcMotor rightBack = null;
     private RevBlinkinLedDriver blinkin = null;
-    private DcMotorEx nectarShooter = null;
+    private DcMotorEx launcherRight = null;
 
     private DcMotor intake = null;
     private Servo pollengate = null;
@@ -57,15 +56,15 @@ public class RobotHardware {
         leftFront = hwMap.get(DcMotor.class, "leftFront");
         rightFront = hwMap.get(DcMotor.class, "rightFront");
         rightBack = hwMap.get(DcMotor.class, "rightBack");
-        nectarShooter = hwMap.get(DcMotorEx.class, "nectarShooter");
-        nectarShooter.setDirection(DcMotorSimple.Direction.FORWARD); // flip to REVERSE if it spins the wrong way
-        nectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        pollengate= hwMap.get(Servo.class, "leverarm");
-        pollengate.setPosition(.95);
+        launcherRight = hwMap.get(DcMotorEx.class, "launcherRight");//Robot's Right
+        launcherRight.setDirection(DcMotorSimple.Direction.FORWARD); // flip to REVERSE if it spins the wrong way
+        launcherRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        pollengate= hwMap.get(Servo.class, "pollenGate");
+        pollengate.setPosition(.45);
         flowerleft = hwMap.get(Servo.class,"flowerLeft");
         flowerright= hwMap.get(Servo.class,"flowerRight");
-        flowerleft.setPosition(.5);
-        flowerright.setPosition(.5);
+        flowerleft.setPosition(.70);
+        flowerright.setPosition(.45);
 
 
 
@@ -87,8 +86,8 @@ public class RobotHardware {
         rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
         imu.resetYaw();
 
-        nectarShooter.setDirection(DcMotorSimple.Direction.FORWARD); // flip to REVERSE if it spins the wrong way
-        nectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        launcherRight.setDirection(DcMotorSimple.Direction.FORWARD); // flip to REVERSE if it spins the wrong way
+        launcherRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 
         intake.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -140,7 +139,7 @@ public class RobotHardware {
         return imu;
     }
 
-    public DcMotorEx getNectarShooter() { return nectarShooter;}
+    public DcMotorEx getLauncherRight() { return launcherRight;}
 
     public RevBlinkinLedDriver getBlinkin() {
         return blinkin;

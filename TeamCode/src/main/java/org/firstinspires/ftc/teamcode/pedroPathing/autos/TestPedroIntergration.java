@@ -8,7 +8,7 @@ import com.pedropathing.paths.PathChain;
  */
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-import org.firstinspires.ftc.teamcode.pedroPathing.setUp.PedroBase;
+import org.firstinspires.ftc.teamcode.pedroPathing.pedro.PedroBase;
 
 //Importing general pedropathing files.
 

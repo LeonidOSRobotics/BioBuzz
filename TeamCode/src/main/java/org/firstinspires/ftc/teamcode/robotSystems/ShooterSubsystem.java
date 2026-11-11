@@ -13,24 +13,24 @@ public class ShooterSubsystem {
     public void setVelocity(double velocity) {
         // Converting the RPM velocity to ticks per second
         velocity = (velocity * 28.0) / 60;
-        hardware.getNectarShooter().setVelocity(velocity);// Go to RobotHardware REVERSE if it spins the wrong way
+        hardware.getLauncherRight().setVelocity(velocity);// Go to RobotHardware REVERSE if it spins the wrong way
 
     }
 
     public boolean isUpToSpeed(double target) {
         double threshold = 25; //Allows for the motor to be up to 50 rpm lower than needed
         target = ((target - threshold) * 28) / 60;
-        boolean NectarMotor = hardware.getNectarShooter().getVelocity() > target;
+        boolean NectarMotor = hardware.getLauncherRight().getVelocity() > target;
         return NectarMotor;
     }
 
     public void powerShooter(double val) {
-        hardware.getNectarShooter().setPower(val); // Go to RobotHardware REVERSE if it spins the wrong way
+        hardware.getLauncherRight().setPower(val); // Go to RobotHardware REVERSE if it spins the wrong way
 
     }
 
     public void powerOff() {
-        hardware.getNectarShooter().setPower(0);
+        hardware.getLauncherRight().setPower(0);
 
     }
 
@@ -39,18 +39,18 @@ public class ShooterSubsystem {
     }
 
     public void pollenGateClose() {
-        hardware.getPollenGate().setPosition(.75);
+        hardware.getPollenGate().setPosition(.45);
     }
 
 
     public void flowerUp() {
-        hardware.getFlowerLeft().setPosition(1);
-        hardware.getFlowerRight().setPosition(1);
+        hardware.getFlowerLeft().setPosition(.7);
+        hardware.getFlowerRight().setPosition(.45);
     }
 
     public void flowerDown() {
-        hardware.getFlowerLeft().setPosition(0);
-        hardware.getFlowerRight().setPosition(0);
+        hardware.getFlowerLeft().setPosition(.17);
+        hardware.getFlowerRight().setPosition(.93);
     }
 
     public void setLeft(double pos) {

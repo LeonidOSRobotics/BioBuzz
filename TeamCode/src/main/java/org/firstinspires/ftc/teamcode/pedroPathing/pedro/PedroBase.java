@@ -1,5 +1,5 @@
 //Importing team specific pedropathing files
-package org.firstinspires.ftc.teamcode.pedroPathing.setUp;
+package org.firstinspires.ftc.teamcode.pedroPathing.pedro;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 

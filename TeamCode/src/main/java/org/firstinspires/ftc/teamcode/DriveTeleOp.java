@@ -22,9 +22,9 @@ public class DriveTeleOp extends LinearOpMode {
             // if(gamepad1.start){
             //  robot.imu.resetYaw();
             // }
-            if (gamepad1.dpad_up) {
+            if (gamepad2.dpad_up) {
                 robot.intake.powerOnRamp();
-            }else if (gamepad1.dpad_down){
+            } else if (gamepad2.dpad_down) {
                 robot.intake.powerOffRamp();
 
             }
@@ -41,17 +41,19 @@ public class DriveTeleOp extends LinearOpMode {
                 robot.intake.powerOff();
             }
 
-            if (gamepad2.dpad_up) {
+            if (gamepad1.dpad_up) {
                 robot.shooter.pollenGateOpen();
-            } else if (gamepad2.dpad_down) ;
-            robot.shooter.pollenGateClose();
+            } else if (gamepad1.dpad_down) {
+                robot.shooter.pollenGateClose();
+            }
+
+
+            if (gamepad2.left_bumper) {
+                robot.shooter.flowerUp();
+            } else if (gamepad2.right_bumper) {
+                robot.shooter.flowerDown();
+            }
         }
-
-
-        if (gamepad2.left_bumper) {
-            robot.shooter.flowerUp();
-        } else if (gamepad2.right_bumper) ;
-        robot.shooter.flowerDown();
 
     }
 
